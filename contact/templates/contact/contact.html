@@ -1,27 +1,31 @@
 {% extends 'core/base.html' %}
 
-{% block title %}Contanct{% endblock %}
+{% block title %}Contact{% endblock %}
 
 {% block background %}{% load static %}{% static 'core/img/contact-bg.jpg' %}{% endblock %}
 
 {% block headers %}
-  <h1>Contacto</h1>
-  <span class="subheading">Asesoría</span>
+  <h1>Contact</h1>
+  <span class="subheading">How can I help you?</span>
 {% endblock %}
 
 {% block content %}
-<!-- Contenido Principal -->
+<!-- Main content -->
 <div class="container">
-    <!-- Formulario de contacto -->
+    <!-- Contact form -->
     <form action='' method='POST'>
       {% csrf_token %}
       {% if 'ok' in request.GET %}
-        <p>
-          <b>Se ha enviado correctamente, en breve nos contactaremos.</b>
+        <p id='msg_successful'>
+          <i>It has been sent correctly, we will contact you shortly.</i>
+        </p>
+      {% elif 'fail' in request.GET %}
+        <p id='msg_no_successful'>
+          <i>The message coundn't be sent.</i>
         </p>
       {% endif %}
         <div class="form-group">
-            <label>Nombre *</label>
+            <label>Name *</label>
             <div class="input-group">
                 {{form.name}}
             </div>
@@ -35,17 +39,17 @@
             {{form.email.errors}}
         </div>
         <div class="form-group">
-            <label>Mensaje *</label>
+            <label>Message *</label>
             <div class="input-group">
               {{form.content}}
             </div>
             {{form.content.errors}}
         </div>
         <div class="text-center">
-            <input type="submit" class="btn btn-dark btn-block py-2" value="Enviar">
+            <input type="submit" class="btn btn-dark btn-block py-2" value="Send">
         </div>
     </form>
-    <!-- Fin formulario de contacto -->
+    <!-- End contact form -->
     </div>
 </div>
 {% endblock %}

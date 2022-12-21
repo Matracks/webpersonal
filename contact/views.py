@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
-from email.message import EmailMessage
 from django.urls import reverse
 from django.core.mail import EmailMessage
 from .forms import ContactForm
 from .models import Contact
+from smtplib import SMTPAuthenticationError
 
 
 # Create your views here.
@@ -18,10 +18,10 @@ def contact(request):
             content = request.POST.get('content', '')
 
             email = EmailMessage(
-                'Nombre: Nuevo mensaje de contacto',
-                f'De {name} <{email_send}>\n\nEscribio:\n\n{content}',
-                email_send,
-                ['xxxxxx@xxxx.com'],
+                subject='Name: New contact message',
+                body=f'From {name} <{email_send}>\n\nWrote:\n\n{content}',
+                from_email=email_send,
+                to=['xxxxxx@xxxx.com'],
                 reply_to=[email_send]
             )
 
@@ -31,7 +31,7 @@ def contact(request):
             contact.save()
             return redirect(reverse('contact') + '?ok')
 
-        except:
+        except SMTPAuthenticationError:
             return redirect(reverse('contact') + '?fail')
 
     return render(request, 'contact/contact.html', {'form': contact_form})

@@ -201,8 +201,8 @@ header.masthead .page-heading,header.masthead .post-heading,header.masthead .sit
     }
 }
 
-header.masthead .page-heading,header.masthead .site-headingn {
-    text-align:center
+header.masthead .page-heading,header.masthead .site-heading {
+    text-align:center;
 }
 
 header.masthead .page-heading h1,header.masthead .site-heading h1 {
@@ -415,4 +415,12 @@ footer .copyright {
 .btn-lg{
     font-size:16px;
     padding:25px 35px
+}
+
+#msg_successful {
+    color: green;
+}
+
+#msg_no_successful {
+    color: red;
 }

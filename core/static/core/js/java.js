@@ -1,5 +1,9 @@
 $(document).ready(function() {
-	var project = $('#projects')
-    project.show('fold', 1000)
+	var projects = $('.projects')
+
+    projects.hide()
+  
+    projects.show('drop', 1500)
+    
 });
 

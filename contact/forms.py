@@ -3,7 +3,7 @@ from django import forms
 
 class ContactForm(forms.Form):
     name = forms.CharField(
-        label='Nombre',
+        label='Name',
         required=True,
         widget=forms.TextInput(attrs={'class': 'form-control'})
     )
@@ -13,7 +13,7 @@ class ContactForm(forms.Form):
         widget=forms.EmailInput(attrs={'class': 'form-control'})
     )
     content = forms.CharField(
-        label='Mensaje',
+        label='Message',
         required=True,
         widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 4})
     )
