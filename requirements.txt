@@ -1,4 +1,4 @@
-Django==4.1.1
+Django==4
 django-ckeditor==6.5.1
 Pillow==9.2.0
 pylint==2.15.2
