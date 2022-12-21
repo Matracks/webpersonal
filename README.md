@@ -18,14 +18,27 @@ git clone https://github.com/matracks/webpersonal.git
 ```bash
 cd webpersonal
 ```
+3. Created a Virtual environment with packages
 ```bash
-pipenv install -requirements.txt
+$ pipenv install -r requirements.txt
+$ pipenv shell
 ```
+3. Need [generate a new one](https://djecrety.ir/) SECRET KEY and copy in 'secret_key.txt'
 
-
-3. First [generate a new one](https://djecrety.ir/) SECRET KEY and copy in 'secret_key.txt'
-
-4. Now [open your browser](http://127.0.0.1:8000/)
+4. Then make the migrations for DB
+```bash
+$ python manage.py makemigrations
+$ python manage.py migrate
+```
+5. Create Admin user
+```bash
+$ python manage.py createsuperuser
+```
+6. Runserver
+```bash
+$ python manage.py runserver
+```
+7. Now [open your browser](http://127.0.0.1:8000/)
 5. Easy and enjoy 🍻
 
 ## Architecture
