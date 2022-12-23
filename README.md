@@ -7,6 +7,7 @@
 Python and pipenv as Virtual environment
 
 ## Getting started
+If you don't have pipenv, install with this, else go to step 1.
 ```bash
 pip install pipenv
 ```
