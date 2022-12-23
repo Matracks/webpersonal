@@ -4,7 +4,7 @@
 # Personal Web
 
 ## Requirements
-1. Python and pipenv as Virtual environment
+Python and pipenv as Virtual environment
 
 ## Getting started
 ```bash
